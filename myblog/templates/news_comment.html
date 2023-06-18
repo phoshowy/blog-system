@@ -1,0 +1,27 @@
+<!--新建文章-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} 新建评论 {% endblock %}</h1>
+<hr style="margin-top:10px">
+<form method="post" style="margin-top:50px">
+    <div class="form-group">
+        <label for="title">content</label>
+        <input type="text" name="content" placeholder="content" class="form-control" style="height:50px;"
+               value="{{ request.form['content'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="brief">id</label>
+        <input type="text" name="id" placeholder="id" class="form-control" style="height:60px;"
+               value="{{ request.form['id'] }}"></input>
+    </div>
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" style="margin-left:40%;margin-button:50px;width:200px">提交</button>
+    </div>
+    <hr>
+</form>
+{% endblock %}

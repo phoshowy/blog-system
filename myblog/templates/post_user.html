@@ -1,0 +1,19 @@
+{% extends 'base_user.html' %}
+
+{% block content %}
+<h2 style="text-align:center;font-size:50px;font-weight:bolder"> {{ post_user['user_name'] }} </h2>
+<br>
+<div>
+    <span class="badge time" style="margin-left:35%">{{ post_user['user_name'] }}</span>
+    <span class="badge badge-secondary" style="margin-left:5%">{{ post_user['password'] }}</span>
+</div>
+<hr>
+<p style="white-space: pre-wrap;word-wrap: break-word;">{{ post_user['role'] }}</p>
+
+<hr>
+<form action="{{ url_for('delete_user', user_id=post_user['user_id']) }}" method="POST">
+    <input type="submit" value="删除" class="btn btn-danger btn-sm" style="margin-left:40%;margin-button:50px;width:200px"
+           onclick="return confirm('确定要删除吗?')">
+</form>
+
+{% endblock %}

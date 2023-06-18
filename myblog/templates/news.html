@@ -1,0 +1,39 @@
+<!--新建文章-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} 新建文章 {% endblock %}</h1>
+<hr style="margin-top:10px">
+<form method="post" enctype="multipart/form-data"  style="margin-top:50px">
+    <div class="form-group">
+        <label for="title">标题</label>
+        <input type="text" name="title" placeholder="标题" class="form-control" style="height:50px;"
+               value="{{ request.form['title'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="brief">简介</label>
+        <input type="text" name="brief" placeholder="简介" class="form-control" style="height:60px;"
+               value="{{ request.form['brief'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="tag">标签</label>
+        <input type="text" name="tag" placeholder="标签" class="form-control" style="height:50px;"
+               value="{{ request.form['tag'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="content">内容</label>
+        <textarea name="content" placeholder="文章内容" style="height:150px;"
+                  class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="content">上传图片</label>
+        <input type="file" name="img" value="choose">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" style="margin-left:40%;margin-button:50px;width:200px">提交</button>
+    </div>
+    <hr>
+</form>
+{% endblock %}

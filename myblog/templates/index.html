@@ -1,0 +1,47 @@
+<!--博客文章主页-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center">{% block title %} Welcome to my blog ! {% endblock %}</h1>
+{% for post in posts %}
+<div>
+    <hr>
+
+
+    <table class="table table-striped">
+
+        <colgroup>
+            <col style="width: 30%;">
+            <col style="width: 50%;">
+            <col style="width: 8%;">
+            <col style="width: 7%;">
+            <col style="width: 5%;">
+        </colgroup>
+        <tbody>
+
+        <tr>
+            <td> <!--标题-->
+                <a href="{{url_for('post', post_id=post['id'])}}">
+                    <h2>{{ post['title'] }}</h2>
+                </a>
+            </td>
+            <td style="width:50px;length:555px;">
+                <!--内容-->
+                <div class="text-muted text-center">{{post['brief']}}</div>
+            </td>
+            <td><span class="badge time">{{ post['created'] }}</span></td>
+            <td><span class="badge badge-secondary">{{ post['tag'] }}</span></td>
+            <td>
+                <a class="text-right" href="{{ url_for('edit', id=post['id']) }}">
+                    <span class="badge badge-warning ">编辑</span>
+                </a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+    {% endfor %}
+</div>
+{% endblock %}

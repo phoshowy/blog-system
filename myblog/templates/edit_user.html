@@ -1,0 +1,29 @@
+<!--修改文章内容-->
+{% extends 'base_user.html' %}
+
+{% block content %}
+<h1>{% block title %} 编辑 {{ post_user['user_name'] }} {% endblock %}</h1>
+<hr style="margin-top:10px">
+<form method='post' style="margin-top:50px">
+    <div class="form-group">
+        <label for="title">用户名</label>
+        <input type="text" name="user_name" placeholder="用户名" class="form-control" style="height:50px;"
+               value="{{post_user['user_name']}}"></input>
+    </div>
+    <div class="form-group">
+        <label for="title">密码</label>
+        <input type="text" name="password" placeholder="密码" class="form-control" style="height:60px;"
+               value="{{ post_user['password'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="title">角色</label>
+        <input type="text" name="role" placeholder="角色" class="form-control" style="height:50px;"
+               value="{{post_user['role']}}"></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" style="margin-left:40%;margin-button:50px;width:200px">完成</button>
+    </div>
+</form>
+<hr>
+{% endblock %}

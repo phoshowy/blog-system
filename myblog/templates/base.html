@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<style>
+  .body {
+ background-image: url(https://img-blog.csdnimg.cn/6f3fd0ab8cf8450c9343ffd6a9f371a7.jpeg#pic_center);
+  background-size: cover;
+  width: 100%;
+  height: 100%;>
+}
+
+
+</style>
+<body style="background-image: url(https://img-blog.csdnimg.cn/6f3fd0ab8cf8450c9343ffd6a9f371a7.jpeg#pic_center);
+  background-size: cover;
+  width: 100%;
+  height: 100%;">
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="{{ url_for('index')}}">个人博客系统</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('about')}}">关于me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('new')}}">发布文章</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{{url_for('new_comment')}}">发布评论</a>
+            </li>
+        </ul>
+    </div>
+    <a href="/">
+        <svg t="1686822337839" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             p-id="2417" width="32" height="32">
+            <path d="M563.2 986.763636H93.090909c-51.2 0-93.090909-41.890909-93.090909-93.090909V130.327273c0-51.2 41.890909-93.090909 93.090909-93.090909h470.109091c27.927273 0 46.545455 18.618182 46.545455 46.545454s-18.618182 46.545455-46.545455 46.545455H93.090909v768h470.109091c27.927273 0 46.545455 18.618182 46.545455 46.545454 0 23.272727-18.618182 41.890909-46.545455 41.890909zM730.763636 758.690909c-18.618182-18.618182-18.618182-46.545455 0-65.163636l176.872728-176.872728L698.181818 297.890909l32.581818-32.581818c18.618182-18.618182 46.545455-18.618182 65.163637 0l214.109091 214.109091c18.618182 18.618182 18.618182 46.545455 0 65.163636l-214.109091 214.109091c-13.963636 18.618182-46.545455 18.618182-65.163637 0z"
+                  fill="#31394C" p-id="2418"></path>
+            <path d="M935.563636 558.545455H404.945455c-27.927273 0-46.545455-18.618182-46.545455-46.545455s18.618182-46.545455 46.545455-46.545455h530.618181v93.09091z"
+                  fill="#31394C" p-id="2419"></path>
+        </svg>
+    </a>
+</nav>
+<div class="container" style="background-color:white">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+    {% block content %} {% endblock %}
+</div>
+
+
+<script src="{{url_for('static', filename='js/jquery.slim.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
+</html>

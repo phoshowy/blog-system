@@ -1,0 +1,35 @@
+
+ALTER TABLE posts ADD COLUMN img TEXT;
+CREATE TABLE IF not EXISTS posts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    brief TEXT  ,
+    tag TEXT,
+    img TEXT
+);
+--drop table comments;
+CREATE TABLE IF not EXISTS comments (
+    comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER  ,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    content TEXT NOT NULL
+
+
+);
+
+CREATE TABLE IF not EXISTS posts_other (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    brief TEXT  ,
+    tag TEXT
+);
+CREATE TABLE IF not EXISTS users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL
+);
